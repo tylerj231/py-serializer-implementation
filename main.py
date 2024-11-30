@@ -6,10 +6,10 @@ import io
 
 
 def serialize_car_object(car: Car) -> bytes:
-
     serializer = CarSerializer(car)
     json = JSONRenderer().render(serializer.data)
     return json
+
 
 def deserialize_car_object(json: bytes) -> Car:
 
@@ -18,7 +18,7 @@ def deserialize_car_object(json: bytes) -> Car:
     serializer = CarSerializer(data=data)
 
     if serializer.is_valid():
-         car = serializer.save()
-         return car
+        car = serializer.save()
+        return car
     else:
         return serializer.errors
